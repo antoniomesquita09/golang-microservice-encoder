@@ -1,6 +1,7 @@
-package repositories
+package repositories_test
 
 import (
+	"encoder/application/repositories"
 	"encoder/domain"
 	"encoder/framework/database"
 	uuid "github.com/satori/go.uuid"
@@ -18,7 +19,7 @@ func TestNewVideoRepositoryDbInsert(t *testing.T) {
 	video.FilePath = "path"
 	video.CreatedAt = time.Now()
 
-	repo := VideoRepositoryDb{Db: db}
+	repo := repositories.VideoRepositoryDb{Db: db}
 	repo.Insert(video)
 
 	v, err := repo.Find(video.ID)
